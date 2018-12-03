@@ -29,5 +29,11 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     print(str(message.author)+":"+message.content)
+    
+    if message.content == "accept":
+        await bot.wait_until_ready()
+        role = get(message.server.roles, name='☣ Membru ☣')
+        await bot.add_roles(message.author, role)
+        await bot.send_message(message.channel,message.author.role.name)
 
 bot.run(str(os.environ.get("BOT_TOKEN")))
