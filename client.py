@@ -25,7 +25,7 @@ async def on_ready():
     print('--------')
     print('Credits D1R0')
 
-    return await bot.change_presence(game=discord.Game(name="by D1R0"))
+    return await bot.change_presence(game=discord.Game(name=str(os.environ.get("NAME_TOKEN"))))
 
 @bot.event
 async def on_message(message):
