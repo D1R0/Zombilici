@@ -44,5 +44,18 @@ async def on_message(message):
 
     if message.content.startswith("discord.gg/"):
         await bot.delete_message(message)
+
+@bot.event
+async def on_member_join(member):
+    server = '522330800805511169'
+    fmt = 'Welcome to the {1.name} Discord server, {0.mention}, please read the 
+    rules and enjoy your stay.'
+    await bot.send_message(server, fmt.format(member, member.server))
+
+@bot.event
+async def on_member_remove(member):
+    server = '522330800805511169'
+    fmt = '{0.mention} has left/been kicked from the server.'
+    await bot.send_message(server, fmt.format(member, member.server))
             
 bot.run(str(os.environ.get("BOT_TOKEN")))
