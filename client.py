@@ -29,14 +29,14 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
-    server = '522330800805511169'
-    fmt = 'Welcome to the {1.name} Discord server, {0.mention}, please read the rules and enjoy your stay.'
-    await bot.send_message(server, fmt.format(member, member.server))
+    channel = bot.get_channel("contor")
+    fmt = 'Welcome to the {1.name}'
+    await bot.send_message(channel, fmt.format(member)
     
 async def on_member_remove(member):
-    server = '522330800805511169'
+    channel = bot.get_channel("contor")
     fmt = '{0.mention} has left/been kicked from the server.'
-    await bot.send_message(server, fmt.format(member, member.server))
+    await bot.send_message(channel, fmt.format(member)
     
 async def on_message(message):
     print(str(message.author)+":"+message.content)
