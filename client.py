@@ -28,16 +28,6 @@ async def on_ready():
     return await bot.change_presence(game=discord.Game(name=str(os.environ.get("NAME_TOKEN"))))
 
 @bot.event
-async def on_member_join(member):
-    channel = bot.get_channel("contor")
-    fmt = 'Welcome to the {1.name}'
-    await bot.send_message(channel, fmt.format(member)
-    
-async def on_member_remove(member):
-    channel = bot.get_channel("contor")
-    fmt = '{0.mention} has left/been kicked from the server.'
-    await bot.send_message(channel, fmt.format(member)
-    
 async def on_message(message):
     print(str(message.author)+":"+message.content)
     
