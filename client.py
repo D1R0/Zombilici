@@ -30,6 +30,6 @@ async def on_ready():
 @bot.event
 async def on_member_join(member):
     role = discord.utils.get(member.guild.roles, name='★ Membrii GameFX ★')
-    await member.add_roles(role)
+    await bot.add_roles(member,role)
             
 bot.run(str(os.environ.get("BOT_TOKEN")))
