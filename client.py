@@ -29,7 +29,7 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
-    role=get(member.server.roles, id='444459730870730764')
-    await member.add_roles(role)
+    role=get(member.server.roles, name="★ Membrii GameFX ★")
+    await bot.add_roles(member,role)
             
 bot.run(str(os.environ.get("BOT_TOKEN")))
