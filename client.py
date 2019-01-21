@@ -28,21 +28,8 @@ async def on_ready():
     return await bot.change_presence(game=discord.Game(name=str(os.environ.get("NAME_TOKEN"))))
 
 @bot.event
-async def on_message(message):
-    print(str(message.author)+":"+message.content)
-    
-    if message.content == "accept":
-        role = get(message.server.roles, id='519103654616367114')
-        if not role in message.author.roles:
-            await bot.send_message(message.author, "Bine ai venit pe ***☣ Zmbio Community ☣***!")
-            await bot.wait_until_ready()
-            await bot.add_roles(message.author, role)
-            await bot.delete_message(message)
-
-    if message.content.startswith("https://discord.gg/:"):
-        await bot.delete_message(message)
-
-    if message.content.startswith("discord.gg/"):
-        await bot.delete_message(message)
+async def on_member_join(member):
+    role=discord.utils.get(member.server.roles,id='444459730870730764')
+    await bot.add_roles(member,role)
             
 bot.run(str(os.environ.get("BOT_TOKEN")))
